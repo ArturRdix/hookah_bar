@@ -1,13 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import productList from './components/productList';
 import MenuList from './components/MenuList';
+import { FaCartShopping } from "react-icons/fa6";
+import ModalCart from './components/ModalCart/ModalCart';
 
 function App() {
+  const [activeClass, setActiveClass] = useState(false);
+  const [orders, setOrders] = useState({})
+  const [activeModal, setActiveModal] = useState(false)
+
+
+
+  function addToOrders(item) {
+    let newOrders = { ...orders }
+    newOrders[item.id] = item
+    if (item.amount <= 0) {
+      delete newOrders[item.id]
+    }
+    setOrders(newOrders)
+
+  }
+  useEffect(() => {
+
+    console.log(orders)
+  }, [orders])
   return (
     <>
+      <ModalCart orders={orders} active={activeModal} setActive={setActiveModal} />
       <header className="header">
-        <nav className="header__nav">
+        <nav
+          className="header__nav"
+        >
           <div className="header-nav-wrapper">
             <a href="/" className="header__nav-logo">
               <img className="img-logo" src="./img/menuItems/logo_bar.png" alt="" />
@@ -15,17 +39,27 @@ function App() {
                 Hookah
               </h1>
             </a>
-            <div id="burgerMenu" className="burger-menu">
-              <span className="middle-line"></span>
-            </div>
-            <div id="navMenu" className="header__nav-menu">
-              <h2><a href="#kuh">Кухня</a></h2>
-              <h2><a href="#kall">Кальянна картка</a></h2>
-              <h2><a href="#Koktail">Барна картка</a></h2>
-              <h2><a href="#shots">Шоти</a></h2>
-              <h2><a href="#alco">Алкогольна картка</a></h2>
-              <h2><a href="#hotD">Гарячі напої</a></h2>
-              <h2><a href="#fridg">Холодильник</a></h2>
+            <div className="nav-menu">
+              <div className="cart-block">
+                <span>{Object.values(orders).length > 0 ? Object.values(orders).length : ''}</span>
+                <FaCartShopping onClick={() => setActiveModal(true)} className='cart-icon' />
+              </div>
+              <div
+                id="burgerMenu"
+                className={`burger-menu ${activeClass ? 'active' : ''} `}
+                onClick={() => setActiveClass(activeClass => !activeClass)}
+              >
+                <span className="middle-line"></span>
+              </div>
+              <div id="navMenu" className={`header__nav-menu ${activeClass ? 'active' : ''} `}>
+                <h2><a href="#kuh">Кухня</a></h2>
+                <h2><a href="#kall">Кальянна картка</a></h2>
+                <h2><a href="#Koktail">Барна картка</a></h2>
+                <h2><a href="#shots">Шоти</a></h2>
+                <h2><a href="#alco">Алкогольна картка</a></h2>
+                <h2><a href="#hotD">Гарячі напої</a></h2>
+                <h2><a href="#fridg">Холодильник</a></h2>
+              </div>
             </div>
           </div>
         </nav>
@@ -73,47 +107,47 @@ function App() {
           <div className="wrapper-menu-title">
             <h2 id="kall" className="menu-title">Кальянна картка</h2>
           </div>
-          <MenuList items={productList.hookahItem} id="hookahList" />
+          <MenuList addOrder={addToOrders} items={productList.hookahItem} id="hookahList" />
 
           <div className="wrapper-menu-title">
             <h2 id="kuh" className="menu-title">Кухня</h2>
           </div>
-          <MenuList items={productList.kuhnyaItem} id="kuhnyaList" />
+          <MenuList addOrder={addToOrders} items={productList.kuhnyaItem} id="kuhnyaList" />
 
           <div className="wrapper-menu-title">
             <h2 id="hotD" className="menu-title">Гарячі напої</h2>
           </div>
-          <MenuList items={productList.hotDrinkItem} id="hotDrinkList" />
+          <MenuList addOrder={addToOrders} items={productList.hotDrinkItem} id="hotDrinkList" />
 
           <div className="wrapper-menu-title">
             <h2 id="otherKuh" className="menu-title">Інші закуски</h2>
           </div>
-          <MenuList items={productList.zakuskiItem} id="zakuskiList" />
+          <MenuList addOrder={addToOrders} items={productList.zakuskiItem} id="zakuskiList" />
 
           <div className="wrapper-menu-title">
             <h2 id="Koktail" className="menu-title">Коктейльна картка</h2>
           </div>
-          <MenuList items={productList.barnayaKarta} id="koktailList" />
+          <MenuList addOrder={addToOrders} items={productList.barnayaKarta} id="koktailList" />
 
           <div className="wrapper-menu-title">
             <h2 id="shots" className="menu-title">Шоти</h2>
           </div>
-          <MenuList items={productList.shotsItem} id="shotsList" />
+          <MenuList addOrder={addToOrders} items={productList.shotsItem} id="shotsList" />
 
           <div className="wrapper-menu-title">
             <h2 id="alco" className="menu-title">Алкогольна картка</h2>
           </div>
-          <MenuList items={productList.alkoKArtaItem} id="alkoholList" />
+          <MenuList addOrder={addToOrders} items={productList.alkoKArtaItem} id="alkoholList" />
 
           <div className="wrapper-menu-title">
             <h2 id="fridg" className="menu-title">Напої в холодильнику</h2>
           </div>
-          <MenuList items={productList.holodosItem} id="fridgeList" />
+          <MenuList addOrder={addToOrders} items={productList.holodosItem} id="fridgeList" />
 
           <div className="wrapper-menu-title">
             <h2 id="other" className="menu-title">Інше</h2>
           </div>
-        <MenuList items={productList.othersItem} id="otherList" />
+          <MenuList addOrder={addToOrders} items={productList.othersItem} id="otherList" />
 
         </div>
       </main>

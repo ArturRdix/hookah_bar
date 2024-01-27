@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@300;400;500;600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap);
 
+html {
+  scroll-behavior: smooth;
+}
+
 .header,
 main {
   padding: 0 25px
@@ -40,7 +44,8 @@ main {
   padding: 0;
   box-sizing: border-box;
   font-family: Oswald, sans-serif;
-  font-weight: 200
+  font-weight: 200;
+  color: #fff;
 }
 
 a {
@@ -51,6 +56,13 @@ ul {
   list-style: none
 }
 
+button {
+  cursor: pointer;
+  border: 0;
+}
+.lock-bg{
+  overflow: hidden;
+}
 .header {
   background-image: url('../public/img/main.jpg');
   background-size: cover;
@@ -76,11 +88,22 @@ ul {
   align-items: center
 }
 
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .header__nav-logo {
   display: flex;
   align-items: center;
   gap: 5px;
   transition: var(--animation-ms)
+}
+
+.cart-icon {
+  width: 25px;
+  height: 25px;
 }
 
 .img-logo {
@@ -147,6 +170,7 @@ ul {
 }
 
 .header__nav-menu h2 {
+  font-size: clamp(1.2em, 5vw, 1.5em);
   transition: var(--animation-ms)
 }
 
@@ -265,7 +289,9 @@ ul {
   flex-direction: column;
   transition: transform 1s, opacity 1s, background-color var(--animation-ms) ease, scale var(--animation-ms) ease;
   border-radius: 10px;
-  cursor: pointer
+  padding: 5px;
+  background-color: #313131;
+  justify-content: space-between;
 }
 
 .item-img {
@@ -275,9 +301,38 @@ ul {
 }
 
 .menu-list-item:hover {
-  padding: 5px;
-  background-color: #313131;
-  scale: 1.1
+  /*scale: 1.1*/
+}
+
+.item-price {
+  font-size: 16px;
+  color: #b9b9b9;
+}
+
+.item-regul {
+  display: flex;
+  justify-content: space-between;
+  background-color: #151515;
+  border-radius: 7px;
+  padding: 2px;
+}
+.item-regul button{
+  background-color: transparent;
+  font-size: 14px;
+  padding: 0 6px;
+  border-radius: 7px;
+  transition: var(--animation-ms);
+}
+.item-regul button:hover{
+  background-color: #414141;
+}
+
+.item-btn {
+  width: 100%;
+  padding: 2px;
+  border-radius: 7px;
+  font-size: 15px;
+  background-color: #151515;
 }
 
 .animation-element {

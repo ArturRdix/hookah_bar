@@ -1,0 +1,75 @@
+.modalWrapp {
+    position: fixed;
+    z-index: 1999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.597);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modalWrapp.active {
+    opacity: 1;
+    pointer-events: all;
+    scale: 1;
+}
+
+.modalContent {
+    background-color: #4c4c4c;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .3s;
+    scale: 0.5;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modalContent.active {
+    scale: 1;
+}
+
+.ordertable {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ordertable * {
+    color: #e2e2e2;
+}
+
+.ordertable tr td {}
+
+.ordertable tr {
+    display: flex;
+    gap: 80px;
+    justify-content: space-between;
+    border-bottom: 1px dashed;
+}
+
+.payBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payBlock button {
+    background: #5deb65;
+    transition: .3s;
+    padding: 5px 10px;
+    border-radius: 6px;
+    color: black;
+}
+
+.payBlock button:hover {
+    background: #55c95a
+}
+.payBlock button:active{
+    scale: .8;
+}
