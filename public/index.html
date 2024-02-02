@@ -7,15 +7,24 @@
   <title>Hookah Bar</title>
   <link rel="stylesheet" href="./style/style.css">
   <link rel="icon" href="./img/menuItems/logo_var.png" type="image/x-icon">
-
   <script src="//static.liqpay.ua/libjs/checkout.js" async></script>
 </head>
 
-<body>
+<body id="body">
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 
+  <script>
+    const body = document.getElementById('body')
 
+    window.activeScroll = () => {
+      body.classList.remove('lockBody')
+    }
+    window.disableScroll = () => {
+      body.classList.add('lockBody')
+    }
+
+  </script>
 </body>
 
 </html>

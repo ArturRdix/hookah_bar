@@ -5,12 +5,21 @@ import MenuList from './components/MenuList';
 import { FaCartShopping } from "react-icons/fa6";
 import ModalCart from './components/ModalCart/ModalCart';
 
+const { activeScroll, disableScroll } = window
+
 function App() {
   const [activeClass, setActiveClass] = useState(false);
   const [orders, setOrders] = useState({})
   const [activeModal, setActiveModal] = useState(false)
 
-
+  useEffect(() => {
+    if (activeModal) {
+      disableScroll()
+    }
+    else {
+      activeScroll()
+    }
+  }, [activeModal])
 
   function addToOrders(item) {
     let newOrders = { ...orders }
@@ -41,8 +50,10 @@ function App() {
             </a>
             <div className="nav-menu">
               <div className="cart-block">
-                <span>{Object.values(orders).length > 0 ? Object.values(orders).length : ''}</span>
-                <FaCartShopping onClick={() => setActiveModal(true)} className='cart-icon' />
+                {Object.values(orders).length > 0 ? <>
+                <span> {Object.values(orders).length}</span>
+                  <FaCartShopping onClick={() => setActiveModal(true)} className='cart-icon' />
+                  </> : ''}
               </div>
               <div
                 id="burgerMenu"

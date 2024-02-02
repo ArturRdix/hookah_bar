@@ -19,7 +19,10 @@ body,
 main {
   background-color: #222
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 .menu-list-item,
 .submenu,
 .submenu-wrapper,
@@ -47,7 +50,6 @@ main {
   font-weight: 200;
   color: #fff;
 }
-
 a {
   text-decoration: none
 }
@@ -60,9 +62,16 @@ button {
   cursor: pointer;
   border: 0;
 }
-.lock-bg{
+.lockBody{
   overflow: hidden;
 }
+#liqpay_checkout {
+  width: 85vw;
+  height: 85vh;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
 .header {
   background-image: url('../public/img/main.jpg');
   background-size: cover;
@@ -310,20 +319,23 @@ button {
 }
 
 .item-regul {
+  border: 2px solid#00ff3c77;
   display: flex;
   justify-content: space-between;
   background-color: #151515;
   border-radius: 7px;
   padding: 2px;
 }
-.item-regul button{
+
+.item-regul button {
   background-color: transparent;
-  font-size: 14px;
+  font-size: 16px;
   padding: 0 6px;
   border-radius: 7px;
   transition: var(--animation-ms);
 }
-.item-regul button:hover{
+
+.item-regul button:hover {
   background-color: #414141;
 }
 
@@ -331,7 +343,7 @@ button {
   width: 100%;
   padding: 2px;
   border-radius: 7px;
-  font-size: 15px;
+  font-size: 17px;
   background-color: #151515;
 }
 

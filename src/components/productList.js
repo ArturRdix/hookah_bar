@@ -1,4 +1,4 @@
-const products = await fetch('http://localhost:5000/api/Products')
+const products = await fetch(process.env.REACT_APP_API_URL + '/Products')
     .then((response) => {
         return response.json();
     });
