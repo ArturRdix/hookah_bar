@@ -31,12 +31,11 @@ function App() {
 
   }
   useEffect(() => {
-
-    console.log(orders)
+    console.log('app', orders)
   }, [orders])
   return (
     <>
-      <ModalCart orders={orders} active={activeModal} setActive={setActiveModal} />
+      <ModalCart orders={orders} active={activeModal} setActive={setActiveModal} setOrders={setOrders} />
       <header className="header">
         <nav
           className="header__nav"
@@ -51,9 +50,9 @@ function App() {
             <div className="nav-menu">
               <div className="cart-block">
                 {Object.values(orders).length > 0 ? <>
-                <span> {Object.values(orders).length}</span>
+                  <span> {Object.values(orders).length}</span>
                   <FaCartShopping onClick={() => setActiveModal(true)} className='cart-icon' />
-                  </> : ''}
+                </> : ''}
               </div>
               <div
                 id="burgerMenu"

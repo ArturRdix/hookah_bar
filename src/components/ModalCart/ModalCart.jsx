@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ModalCart.module.css'
 import LiqPayPage from '../LiqPayPage/LiqPayPage';
 
 
-export default function ModalCart({ active, setActive, orders }) {
+export default function ModalCart({ active, setActive, orders, setOrders }) {
   const [data, setData] = useState()
   const [tableNumber, setTableNumber] = useState('');
   const [addition, setAddition] = useState('');
 
+  useEffect(() => {
+    console.log('MC', orders)
+  }, [orders])
 
   async function setOrders() {
     try {
@@ -23,11 +26,10 @@ export default function ModalCart({ active, setActive, orders }) {
             description: addition,
           }),
       });
-
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         setData(data)
+        setOrders({})
       } else {
         console.error('Произошла ошибка при отправке заказов');
       }
