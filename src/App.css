@@ -354,7 +354,6 @@ button {
   background-color: #151515;
   border-radius: 7px;
   padding: 2px;
-  animation: fadeInScale .2s;
   transition: 0.3s;
 }
 
@@ -370,25 +369,12 @@ button {
   background-color: #414141;
 }
 
-@keyframes fadeInScale {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 .item-btn {
   width: 100%;
   padding: 2px;
   border-radius: 7px;
   font-size: 1.1rem;
   background-color: #151515;
-  animation: fadeInScale .2s;
 }
 
 
