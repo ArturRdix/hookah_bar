@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-height: 90%;
 }
 
 .modalContent.active {
@@ -41,6 +42,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 50vh;
+    overflow-y: scroll;
+    border-radius: 0px 0px 15px 15px;
 }
 
 .ordertable * {
@@ -135,10 +139,26 @@
         outline: none;
         padding: 5px;
         color: black;
-        transition: .3s;
+        transition: 0.9s;
     }
 
     textarea:focus {
-        box-shadow: -1px 0px 3px 3px rgba(0, 0, 0, 0.75) inset
+        box-shadow: 0px 0px 7px 3px #f4ff9d63;
     }
+}
+
+input[type="number"] {
+    transition: 1s;
+}
+
+input[type="number"]::placeholder {
+    opacity: 0;
+}
+
+input[type="number"]:invalid {
+    box-shadow: 0px 0px 7px 3px rgb(255, 0, 0);
+}
+
+input:not(:placeholder-shown) {
+    box-shadow: 0px 0px 7px 3px rgb(17, 255, 0)
 }

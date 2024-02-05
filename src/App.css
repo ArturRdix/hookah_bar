@@ -3,6 +3,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-margin-bottom: 60px;
 }
 
 .header,
@@ -19,14 +20,15 @@ body,
 main {
   background-color: #222
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
+
 .menu-list-item,
 .submenu,
-.submenu-wrapper,
-main {
+.submenu-wrapper {
   overflow: hidden
 }
 
@@ -50,6 +52,7 @@ main {
   font-weight: 200;
   color: #fff;
 }
+
 a {
   text-decoration: none
 }
@@ -62,9 +65,11 @@ button {
   cursor: pointer;
   border: 0;
 }
-.lockBody{
+
+.lockBody {
   overflow: hidden;
 }
+
 #liqpay_checkout {
   width: 85vw;
   height: 85vh;
@@ -108,6 +113,20 @@ button {
   align-items: center;
   gap: 5px;
   transition: var(--animation-ms)
+}
+
+.cart-block {
+  display: flex;
+  justify-items: center;
+  gap: 5px;
+  align-items: center;
+  padding: 5px;
+  scale: 0;
+  transition: .3s;
+}
+
+.show-cart {
+  scale: 1 !important;
 }
 
 .cart-icon {
@@ -296,26 +315,36 @@ button {
 .menu-list-item {
   display: flex;
   flex-direction: column;
-  transition: transform 1s, opacity 1s, background-color var(--animation-ms) ease, scale var(--animation-ms) ease;
+  transition: .3s;
   border-radius: 10px;
   padding: 5px;
+  gap: 5px;
   background-color: #313131;
   justify-content: space-between;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.menu-details {
+  width: 150px
 }
 
 .item-img {
   border-radius: 10px;
-  width: 140px;
-  height: 150px
-}
-
-.menu-list-item:hover {
-  /*scale: 1.1*/
+  width: 150px;
 }
 
 .item-price {
-  font-size: 16px;
+  font-size: 1rem;
   color: #b9b9b9;
+}
+
+.item-title {
+  font-size: 1.3rem;
+}
+
+.item-subr {
+  font-size: 0.9rem;
+  color: gray
 }
 
 .item-regul {
@@ -325,6 +354,8 @@ button {
   background-color: #151515;
   border-radius: 7px;
   padding: 2px;
+  animation: fadeInScale .2s;
+  transition: 0.3s;
 }
 
 .item-regul button {
@@ -339,32 +370,28 @@ button {
   background-color: #414141;
 }
 
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .item-btn {
   width: 100%;
   padding: 2px;
   border-radius: 7px;
-  font-size: 17px;
+  font-size: 1.1rem;
   background-color: #151515;
+  animation: fadeInScale .2s;
 }
 
-.animation-element {
-  transform: translateY(20px);
-  opacity: 1
-}
 
-.animation-element.show-element {
-  transform: translateY(0);
-  opacity: 1
-}
-
-.menu-details {
-  max-width: 140px
-}
-
-.item-subr {
-  font-size: 14px;
-  color: gray
-}
 
 @media (max-width:1068px) {
   .header {
@@ -431,3 +458,8 @@ button {
     padding: 0 18px
   }
 }
+
+.item-regul:has(#incrItem:active, #decrItem:active) {
+  scale: 0.9;
+}
+

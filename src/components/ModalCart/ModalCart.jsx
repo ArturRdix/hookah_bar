@@ -3,16 +3,12 @@ import styles from './ModalCart.module.css'
 import LiqPayPage from '../LiqPayPage/LiqPayPage';
 
 
-export default function ModalCart({ active, setActive, orders, setOrders }) {
+export default function ModalCart({ active, setActive, orders, setOrders, setAmount }) {
   const [data, setData] = useState()
   const [tableNumber, setTableNumber] = useState('');
   const [addition, setAddition] = useState('');
 
-  useEffect(() => {
-    console.log('MC', orders)
-  }, [orders])
-
-  async function setOrders() {
+  async function setRequestOrders() {
     try {
       const response = await fetch(process.env.REACT_APP_API_URL + '/Pay/Order', {
         method: 'POST',
@@ -80,9 +76,10 @@ export default function ModalCart({ active, setActive, orders, setOrders }) {
                 className={styles.input}
                 type="number"
                 min="1"
-                max="9"
-                name="" i
-                d="table"
+                max="7"
+                name=""
+                placeholder='1'
+                id="table"
                 onChange={(e) => setTableNumber(e.target.value)}
               />
               <label htmlFor="table">Який номер столу?</label>
@@ -93,7 +90,7 @@ export default function ModalCart({ active, setActive, orders, setOrders }) {
               ></textarea>
             </div>
             <div className={styles.payBlock}>
-              <button onClick={setOrders}>Сплатити</button>
+              <button onClick={setRequestOrders}>Сплатити</button>
             </div>
           </div>}
 

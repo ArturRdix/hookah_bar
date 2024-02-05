@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function MenuItem({ item, addOrder }) {
+export default function MenuItem({ item, addOrder, orders }) {
     const [orderItem, setOrderItem] = useState({
         id: item.id,
         amount: 0,
@@ -26,11 +26,11 @@ export default function MenuItem({ item, addOrder }) {
             </div>
             <div>{orderItem.amount > 0 ?
                 <div className='item-regul'>
-                <button onClick={() => { addItemOrder(-1) }}>-</button>
+                    <button id='decrItem' onClick={() => { addItemOrder(-1) }}>-</button>
                     <span>{orderItem.amount}</span>
-                    <button onClick={() => { addItemOrder(1) }}>+</button>
+                    <button id='incrItem' onClick={() => { addItemOrder(1) }}>+</button>
                 </div> :
-                <button onClick={() => { addItemOrder(1) }} className='item-btn'>До кошику</button>}
+                <button onClick={() => { addItemOrder(1) }} className={`item-btn ${orderItem.amount > 0 ?'show':'hidden'}`}>До кошику</button>}
             </div>
         </li>
     )
