@@ -26,6 +26,8 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+
+
 .menu-list-item,
 .submenu,
 .submenu-wrapper {
@@ -448,4 +450,3 @@ button {
 .item-regul:has(#incrItem:active, #decrItem:active) {
   scale: 0.9;
 }
-
