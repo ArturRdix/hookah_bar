@@ -84,7 +84,7 @@ export default function ModalCart({ active, setActive, orders, setOrders, setAmo
                 id="table"
                 onChange={(e) => setTableNumber(e.target.value)}
               />
-              <label htmlFor="table">Який номер столу?</label>
+              <label htmlFor="table">Який номер столу? <span>(Вiд 1 до 7)</span></label>
             </div>
             <div className={styles.textareaBlock}>
               <textarea placeholder='Додатковий коментар до замовлення (не обов`язково)'
@@ -92,7 +92,7 @@ export default function ModalCart({ active, setActive, orders, setOrders, setAmo
               ></textarea>
             </div>
             <div className={styles.payBlock}>
-              <button onClick={setRequestOrders}>Сплатити</button>
+              <button disabled={!(parseInt(tableNumber) >= 1 && parseInt(tableNumber) <= 7)} onClick={setRequestOrders}>Сплатити</button>
             </div>
           </div>}
 

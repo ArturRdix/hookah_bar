@@ -65,7 +65,7 @@
 
 
 .ordertable * {
-    color: #ce0a0a;
+    color: #e2e2e2;
 }
 
 .ordertable tr {
@@ -95,6 +95,15 @@
 
 .payBlock button:active {
     scale: .9;
+}
+
+.payBlock button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.payBlock button:hover:disabled {
+    background-color: gray;
 }
 
 .headLogo {
@@ -138,6 +147,11 @@
         border: 0;
         border-radius: 6px;
         font-weight: 400;
+    }
+
+    label span {
+        font-size: 0.9rem;
+        color: #939393;
     }
 
     display: flex;
