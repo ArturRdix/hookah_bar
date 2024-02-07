@@ -56,12 +56,14 @@ export default function ModalCart({ active, setActive, orders, setOrders, setAmo
               <div className={styles.dashedLine}></div>
             </div>
             <table className={styles.ordertable}>
-              {Object.values(orders).map((e) => (
-                <tr>
+              <tbody> 
+                {Object.values(orders).map((e) => (
+                <tr key={e.id}>
                   <td>{e.amount} x {e.item.title}</td>
                   <td>{e.item.price * e.amount}&#8372;</td>
                 </tr>
-              ))}
+              ))}</tbody>
+
             </table>
             <div className={styles.totalPriceText}>
 

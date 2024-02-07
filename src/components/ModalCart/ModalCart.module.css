@@ -44,29 +44,29 @@
     gap: 10px;
     max-height: 50vh;
     overflow-y: scroll;
-    border-radius: 0px 0px 15px 15px;padding-right: 10px;
+    border-radius: 0px 0px 15px 15px;
+    padding-right: 10px;
 }
 
-.ordertable {
-    &::-webkit-scrollbar {
-        width: 7px;
-    }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #ffffff;
-        border-radius: 10px;
-    }
-    &::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey; 
-        border-radius: 10px;
-      }
+.ordertable::-webkit-scrollbar {
+    width: 7px;
 }
+
+.ordertable::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.ordertable::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
 
 .ordertable * {
-    color: #e2e2e2;
+    color: #ce0a0a;
 }
-
-.ordertable tr td {}
 
 .ordertable tr {
     display: flex;
