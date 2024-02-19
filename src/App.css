@@ -30,10 +30,10 @@ html {
 
 	/* Attach animation, linked to the  View Timeline */
 	animation: linear reveal both;
-	animation-timeline: --revealing-image;
 
 	/* Tweak range when effect should run*/
 	animation-range: entry 25% exit 58%;
+	animation-timeline: --revealing-image;
 }
 
 @keyframes reveal {
