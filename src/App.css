@@ -74,9 +74,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-
-
-.menu-list-item,
 .submenu,
 .submenu-wrapper {
   overflow: hidden
