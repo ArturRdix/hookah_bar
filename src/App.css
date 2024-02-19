@@ -32,8 +32,8 @@ html {
 	animation: linear reveal both;
 
 	/* Tweak range when effect should run*/
-	animation-range: entry 25% exit 58%;
-	animation-timeline: --revealing-image;
+	animation-range: entry 25% exit 58% !important;
+	animation-timeline: --revealing-image !important;
 }
 
 @keyframes reveal {
