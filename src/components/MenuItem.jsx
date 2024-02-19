@@ -15,7 +15,7 @@ export default function MenuItem({ item, addOrder, orders }) {
     }
 
     return (
-        <li className="menu-list-item animation-element">
+        <li className="menu-list-item animation-show">
             <div>
                 <img src={item.imgSrc} loading="lazy" alt="" className="item-img" />
                 <div className="menu-details">
