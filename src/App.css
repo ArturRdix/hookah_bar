@@ -4,56 +4,70 @@
 html {
   scroll-behavior: smooth;
   scroll-margin-bottom: 60px;
-	scroll-timeline: --page-scroll block;
+  scroll-timeline: --page-scroll block;
 }
 
 @keyframes grow-progress {
-	from { transform: scaleX(0); }
-	to { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
 #progress {
-	position: fixed;
-	left: 0; top: 0;
-	width: 100%; height: 2px;
-	background: #b7b7b7;
-    z-index: 9999999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: #b7b7b7;
+  z-index: 9999999;
 
-	transform-origin: 0 50%;
-	animation: grow-progress auto linear;
-	animation-timeline: --page-scroll;
-}
-.animation-show{
-        /* Create View Timeline */
-	view-timeline-name: --revealing-image;
-	view-timeline-axis: block;
-
-	/* Attach animation, linked to the  View Timeline */
-	animation: linear reveal both;
-
-	/* Tweak range when effect should run*/
-	animation-range: entry 25% exit 58% !important;
-	animation-timeline: --revealing-image !important;
+  transform-origin: 0 50%;
+  animation: grow-progress auto linear;
+  animation-timeline: --page-scroll;
 }
 
-@keyframes reveal {
-	0% {
-		opacity: 0.5;
-		scale: 0.5;
-	}
-	10% {
-		opacity: 1;
-		scale: 1;
-	}
-	90% {
-		opacity: 1;
-		scale: 1;
-	}
-	100% {
-		opacity: 0.5;
-		scale: 0.5;
-	}
+@supports (-webkit-appearance:none) {
+  .animation-show {
+    /* Create View Timeline */
+    view-timeline-name: --revealing-image;
+    view-timeline-axis: block;
+
+    /* Attach animation, linked to the  View Timeline */
+    animation: linear reveal both;
+
+    /* Tweak range when effect should run*/
+    animation-range: entry 25% exit 58% !important;
+    animation-timeline: --revealing-image !important;
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0.5;
+      scale: 0.5;
+    }
+
+    10% {
+      opacity: 1;
+      scale: 1;
+    }
+
+    90% {
+      opacity: 1;
+      scale: 1;
+    }
+
+    100% {
+      opacity: 0.5;
+      scale: 0.5;
+    }
+  }
 }
+
 .header,
 main {
   padding: 0 25px
