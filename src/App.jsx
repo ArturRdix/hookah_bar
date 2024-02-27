@@ -5,6 +5,7 @@ import MenuList from './components/MenuList';
 import HeaderModal from './components/Header/HeaderModal';
 import Footer from './components/Footer/Footer';
 import Submenu from './components/Submenu/Submenu';
+import Canvas from './components/Canvas-dotted/Canvas';
 
 function App() {
   const [orders, setOrders] = useState({})
@@ -41,10 +42,6 @@ function App() {
     };
   }, []);
 
-  function clearAmount() {
-
-  }
-
   function addToOrders(item) {
     let newOrders = { ...orders }
     newOrders[item.id] = item
@@ -63,8 +60,9 @@ function App() {
         setOrders={setOrders} />
 
       <Submenu />
-      
+
       <main>
+        <Canvas />
         <div className="menu">
           <div className="wrapper-menu-title">
             <h2 id="kall" className="menu-title">Кальянна картка</h2>
