@@ -31,16 +31,13 @@ html {
   animation-timeline: --page-scroll;
 }
 
-@supports (-webkit-appearance:none) {
+@supports (animation-range:normal) {
   .animation-show {
-    /* Create View Timeline */
     view-timeline-name: --revealing-image;
     view-timeline-axis: block;
 
-    /* Attach animation, linked to the  View Timeline */
     animation: linear reveal both;
 
-    /* Tweak range when effect should run*/
     animation-range: entry 25% exit 58% !important;
     animation-timeline: --revealing-image !important;
   }
