@@ -8,6 +8,7 @@ footer {
     -moz-box-shadow: inset 0px 28px 12px -22px rgba(0, 0, 0, 0.75);
     box-shadow: inset 0px 28px 12px -22px rgba(0, 0, 0, 0.75);
     position: relative;
+    z-index: 2;
 
     div {
         display: flex;
