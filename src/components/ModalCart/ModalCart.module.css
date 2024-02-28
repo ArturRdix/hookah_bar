@@ -32,6 +32,7 @@
     flex-direction: column;
     gap: 15px;
     max-height: 90%;
+    max-width: 85%;
 }
 
 .modalContent.active {

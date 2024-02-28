@@ -87,16 +87,18 @@ export default function ModalCart({ active, setActive, orders, setOrders, setAmo
               <label htmlFor="table">Який номер столу? <span>(Вiд 1 до 7)</span></label>
             </div>
             <div className={styles.textareaBlock}>
-              <textarea placeholder='Додатковий коментар до замовлення (не обов`язково)'
+              {/* <textarea placeholder='Додатковий коментар до замовлення (не обов`язково)'
                 onChange={(e) => setAddition(e.target.value)}
-              ></textarea>
+              ></textarea> */}
+               <span>На даний момент онлайн-оплата - не працює, ви можете використовувати кошик як підрахунок</span>
             </div>
             <div className={styles.payBlock}>
-              <button disabled={!(parseInt(tableNumber) >= 1 && parseInt(tableNumber) <= 7)} onClick={setRequestOrders}>Сплатити</button>
+              <button disabled onClick={setRequestOrders}>Сплатити</button>
             </div>
           </div>}
-
       </div></>
-
   )
 }
+
+
+//Для кнопки, когда заработает оплата  disabled={!(parseInt(tableNumber) >= 1 && parseInt(tableNumber) <= 7)}

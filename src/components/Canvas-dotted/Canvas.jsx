@@ -13,9 +13,13 @@ export default function Canvas() {
         function Dot() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.speed = (Math.random() - 0.5) * 0.4; //скорость движения точек
-            this.radius = Math.random() * 1;//размер точек
-            this.alpha = 1;
+
+            //скорость движения точек
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+
+            this.radius = Math.random() * 1; //размер точек
+            this.alpha = 1; //альфа-канал
             this.decay = Math.random() * 0.009; //скорость появления
 
             this.draw = function () {
@@ -26,8 +30,8 @@ export default function Canvas() {
             };
 
             this.update = function () {
-                this.x += this.speed;
-                this.y += this.speed;
+                this.x += this.vx;
+                this.y += this.vy;
                 this.alpha -= this.decay;
                 this.draw();
             };
@@ -35,7 +39,7 @@ export default function Canvas() {
 
         //Кол-во точек
         function init() {
-            for (let i = 0; i < 120; i++) {
+            for (let i = 0; i < 100; i++) {
                 dots.push(new Dot());
             }
         }
@@ -61,11 +65,11 @@ export default function Canvas() {
             init();
         });
 
-       
+
         return () => {
             window.removeEventListener('resize');
         };
-    }, []); 
+    }, []);
 
     return <canvas className={style.canvasAnimation} id="canvas"></canvas>;
 }
